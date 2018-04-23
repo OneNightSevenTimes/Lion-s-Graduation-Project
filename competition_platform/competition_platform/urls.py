@@ -20,14 +20,13 @@ from web import views
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-
-    url('index/', views.Homepage.as_view()),
-
+    url('index/$', views.Homepage.as_view()),
     url(r'^administratorlogin/', views.administratorlogin),
-
     url(r'^administrator/', views.administrator),
-
-
-
-
+    url(r'^index/check_code.html$', views.CheckCodeView.as_view()),
+    url(r'^register/check_code.html$', views.CheckCodeView.as_view()),
+    url(r'^login/$', views.LoginView.as_view()),
+    url(r'^logout/$', views.LogoutView.as_view()),
+    url(r'^register/$', views.RegisterView.as_view()),
+    url(r'^user_protocol/$', views.UserProtocolView.as_view()),
 ]

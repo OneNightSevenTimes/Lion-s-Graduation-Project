@@ -10,7 +10,7 @@
 <body>
         <!-- 普通用户登录模态对话框开始 -->
         <div id="modal_login1" class="modal_login hide">
-            <form class="form" action="" method="post" onkeydown="if(event.keyCode==13){return false;}">
+            <form class="form" method="post">
                 <div class="modal-header">
                     <button type="button" class="close" aria-label="Close" onclick="Hide('.shade,.modal_login');"><span>×</span>
                     </button>
@@ -20,24 +20,25 @@
                     <div class="form-group">
                         <p>账号</p>
 
-                        <input type="text"  class="form-control center" placeholder="请输入手机号" name="ad_phone">
+                        <input type="text"  class="form-control center" placeholder="请输入用户名" name="username">
 
                     </div>
                     <div class="form-group">
                         <p>密码</p>
-                        <input type="password"  class="form-control center" placeholder="请输入密码" name="ad_password" required="">
+                        <input type="password"  class="form-control center" placeholder="请输入密码" name="password" required="">
                     </div>
                     <div class="form-group">
                         <p>验证码</p>
-                        <input type="text"  class="form-control" placeholder="请输入验证码" required="" style="width: 150px;float:left;margin-left: 50px">
-                        <img  width="81" height="30" src="http://dasai.lanqiao.cn/api/action/directmail/vcode2?_1523190676506">
+                        <input type="text"  class="form-control" placeholder="请输入验证码" name="check_code" required="" style="width: 150px;float:left;margin-left: 50px">
+                        <img src="check_code.html" onclick="changeCheckcode(this)">
                     </div>
-                    <div class="form-group" style="width: 76%; margin-left: 50px;margin-top: 50px;">
-                        <span class="err_msg"></span>
-{#                        <a class="btn btn-lg btn-primary btn-block login-submit" type="submit">立即登录</a>#}
-                        <input class="btn btn-lg btn-primary btn-block login-submit" type="submit" value="提交">
 
+                    <div class="err_info" style="width: 20px">
+                        <span style="color: red;position: fixed" class="err_msg"></span>
                     </div>
+                    <a class="btn btn-lg btn-primary btn-block login-submit" type="submit">立即登录</a>
+{#                        <input class="btn btn-lg btn-primary btn-block login-submit" type="submit" value="提交">#}
+
                 </div>
                 <div class="modal-footer" style="margin-top: 10px;">
                     <p style="text-align: center">

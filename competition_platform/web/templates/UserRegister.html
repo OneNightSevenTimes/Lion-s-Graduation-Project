@@ -1,10 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/register.css">
 </head>
-<body>
+<body class="reg-new">
+    <div class="new-logo">
+        <a href="/index.html"><img src="http://static.lanqiao.cn/dasai/images/login/logo.png"></a>
+    </div>
+    <div class="reg-main">
+        <div class="reg-title relative">
+            <p>注册蓝桥账号</p>
+            <div class="go-kid-box">
+                <a href="http://kid.lanqiao.cn/user/reg.do">由此注册少儿赛账号&gt;</a>
+            </div>
+        </div>
+        <form id="regform" method="POST">
+            <div class="form mt30">
+            <p>{{ form.username }} <span> {{ form.errors.username.0 }}</span></p>
+            <p>{{ form.pwd }} <span>{{ form.errors.pwd.0 }}</span></p>
+            <p>{{ form.repwd }} <span>{{ form.errors.repwd.0 }}</span></p>
+            <p>{{ form.vcode }} <img src="check_code.html" onclick="changeCheckcode(this)"></p>
+                <p><span>{{ form.errors.vcode.0 }}</span></p>
+                <button type="submit" class="sub">立即注册</button>
 
+
+{#                <input type="text" id="username" name="username" placeholder="请输入用户名" autocomplete="off" data-rule="phone:请输入正确的手机号">#}
+{#                <p class="err">&nbsp;</p>#}
+{#                <input type="password" id="pwd" name="pwd" autocomplete="off" placeholder="密码长度6-16位，数字、字母" data-rule="password_reg:密码长度6-16位，数字、字母">#}
+{#                <p class="err">&nbsp;</p>#}
+{#                <input type="password" name="repwd" id="repwd" placeholder="请再次输入您的密码" data-rule="equals_to:两次密码输入必须一致" equals_to="#accountPassword">#}
+{#                <p class="err">&nbsp;</p>#}
+{#                <div class="clearfix">#}
+{#                    <input type="text" id="vcode" name="vcode" placeholder="请输入图片验证码" class="code-input fl" vali="is_imgcode" pass="false">#}
+{#                    <img width="80" height="42" src="http://dasai.lanqiao.cn/api/action/directmail/vcode2?_1524320184905" class="code-img fl">#}
+{#                    <a href="javascript:void(0);" style="font-size: 12px" class="code-link fl">看不清？换一张</a>#}
+{#                </div>#}
+{#                <p class="err">&nbsp;</p>#}
+{#                <div class="clearfix">#}
+{#                    <input type="text" id="sendvcode" name="sendvcode" placeholder="请输入您收到的验证码" class="code-input245 fl" vali="is_sendcode" pass="false">#}
+{#                </div>#}
+{#                <p class="err">&nbsp;</p>#}
+{#                <div class="reg-way clearfix">#}
+{#                    <label class="school b-radius4" style="margin-right: 30px;">#}
+{#                        我是老师#}
+{#                        <input type="radio" name="identityId" value="2">#}
+{#                    </label>#}
+{#                    <label class="stu b-radius4">#}
+{#                        我是学生#}
+{#                        <input type="radio" name="identityId" value="1" style="text-align: right;">#}
+{#                    </label>#}
+{#                </div>#}
+{#                <p class="err" id="identityError">&nbsp;</p>#}
+{#                <div class="agree">#}
+{#                    <label class="checkbox active"><input value="1" name="agree" checked="checked" type="checkbox"></label>#}
+{#                    <span id="agree_a" style="font-size: 14px">我已阅读并同意《<a href="/user_protocol/" target="new" style="position: relative;z-index: 999;">用户协议</a>》</span>#}
+{#                </div>#}
+{#                <p class="err" id="regError">&nbsp;</p>#}
+{#                <button type="submit" class="sub">立即注册</button>#}
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script>
+        function changeCheckcode(ths){
+            ths.src = ths.src + '?';
+        };
+        $(function () {
+            var input_list = $('input');
+            $.each(input_list ,function (k,v) {
+                $(v).removeAttr('required')
+            })
+        })
+    </script>
 </body>
 </html>

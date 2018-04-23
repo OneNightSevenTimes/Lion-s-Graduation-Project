@@ -6,7 +6,7 @@ class UserProfile(models.Model):
     '''
     用户信息
     '''
-    username = models.OneToOneField(User)
+    username = models.CharField(max_length=32,unique=True)
     password = models.CharField(max_length=32,blank=True,null=True)
 
     class Meta:

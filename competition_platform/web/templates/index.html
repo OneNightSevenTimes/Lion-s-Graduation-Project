@@ -39,13 +39,13 @@
 
     <script>
         $('.login-button').click(function () {
-        $('#modal_login1').removeClass('hide');
-        $('.shade').removeClass('hide')
+            $('#modal_login1').removeClass('hide');
+            $('.shade').removeClass('hide')
         });
 
         $('.administratorlogin-button').click(function () {
-        $('#modal_login2').removeClass('hide');
-        $('.shade').removeClass('hide')
+            $('#modal_login2').removeClass('hide');
+            $('.shade').removeClass('hide')
         });
 
 {#        $('.register').click(function () {#}
@@ -53,7 +53,46 @@
 {#        });#}
         function Hide(target) {
             $(target).addClass('hide');
+            $('.err_msg').text('');
         };
+
+        function changeCheckcode(ths){
+            ths.src = ths.src + '?';
+        };
+
+        $('.register').click(function () {
+            window.location.href ="/register"
+        });
+        $('.login-submit').click(function () {
+            $.ajax({
+                url: '/login/',
+                type: 'POST',
+                traditional: true,
+                data: $('.form').serialize(),
+                success:function (result) {
+                    var response = JSON.parse(result);
+                    console.log(response.status);
+                    if(response.status=='True'){
+{#                        //去模态对话框#}
+{#                        $('#modal_login1').addClass('hide');#}
+{#                        //去遮罩层#}
+{#                        $('#shade').addClass('hide');#}
+{#                        //展示用户info#}
+{#                        $('.DLZC').addClass('hide');#}
+                        window.location.href =""
+                    } else{
+                        //show error message
+                        $('.err_msg').text(response.err_msg.error);
+                    }
+                },
+                error:function () {
+                    alert("请求异常")
+                }
+            }
+            )
+        });
+
+
 
     </script>
 
